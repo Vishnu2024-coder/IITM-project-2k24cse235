@@ -55,7 +55,7 @@ train['label'] = train['label'].apply(lambda x: 0 if x == 'normal' else 1)
 test['label'] = test['label'].apply(lambda x: 0 if x == 'normal' else 1)
 
 # -------------------------------
-# 🔥 5. ADD ADVERSARIAL FEATURES
+#  5. ADD ADVERSARIAL FEATURES
 # -------------------------------
 
 # Feature 1: perturbation score (input inconsistency)
@@ -103,7 +103,7 @@ model = RandomForestClassifier(
 model.fit(X_train_res, y_train_res)
 
 # -------------------------------
-# 🔥 10. Adversarial Feature: Prediction Uncertainty
+# 10. Adversarial Feature: Prediction Uncertainty
 # -------------------------------
 probs = model.predict_proba(X_test)
 uncertainty = 1 - np.max(probs, axis=1)
